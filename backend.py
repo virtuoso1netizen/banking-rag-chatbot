@@ -1,14 +1,9 @@
-import os                                          # ← was missing
+import os
 from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain_text_splitters import CharacterTextSplitter
-from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_classic.chains import ConversationalRetrievalChain
-from langchain_classic.memory import ConversationBufferMemory     
-from langchain_groq import ChatGroq
 
 
 # ---------------- LOAD ENV ----------------
@@ -66,6 +61,9 @@ def get_text_chunks(text):
 # ---------------- VECTOR STORE ----------------
 def get_vectorstore(text_chunks):
 
+    from langchain_community.vectorstores import FAISS
+    from langchain_huggingface import HuggingFaceEmbeddings
+
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
@@ -80,6 +78,10 @@ def get_vectorstore(text_chunks):
 
 # ---------------- CONVERSATION CHAIN ----------------
 def get_conversation_chain(vectorstore):
+
+    from langchain_classic.chains import ConversationalRetrievalChain
+    from langchain_classic.memory import ConversationBufferMemory
+    from langchain_groq import ChatGroq
 
     llm = ChatGroq(
         groq_api_key=os.getenv("GROQ_API_KEY"),
@@ -127,8 +129,6 @@ async def upload_documents(
 
     global conversation_chain
 
-    print(files)
-
     raw_text = get_file_text(files)
 
     text_chunks = get_text_chunks(raw_text)
@@ -142,6 +142,7 @@ async def upload_documents(
     return {
         "message": "Documents processed successfully"
     }
+
 
 # ---------------- CHAT REQUEST MODEL ----------------
 class ChatRequest(BaseModel):
