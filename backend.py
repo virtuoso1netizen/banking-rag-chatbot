@@ -6,17 +6,14 @@ from PyPDF2 import PdfReader
 from langchain_text_splitters import CharacterTextSplitter
 
 
-# ---------------- LOAD ENV ----------------
+
 load_dotenv()
 
-# ---------------- FASTAPI APP ----------------
 app = FastAPI()
 
-# ---------------- GLOBAL CONVERSATION CHAIN ----------------
 conversation_chain = None
 
 
-# ---------------- FILE TEXT EXTRACTION ----------------
 def get_file_text(uploaded_files):
 
     text = ""
@@ -43,7 +40,6 @@ def get_file_text(uploaded_files):
     return text
 
 
-# ---------------- TEXT CHUNKING ----------------
 def get_text_chunks(text):
 
     text_splitter = CharacterTextSplitter(
@@ -58,7 +54,6 @@ def get_text_chunks(text):
     return chunks
 
 
-# ---------------- VECTOR STORE ----------------
 def get_vectorstore(text_chunks):
 
     from langchain_community.vectorstores import FAISS
@@ -76,7 +71,6 @@ def get_vectorstore(text_chunks):
     return vectorstore
 
 
-# ---------------- CONVERSATION CHAIN ----------------
 def get_conversation_chain(vectorstore):
 
     from langchain_classic.chains import ConversationalRetrievalChain
@@ -103,7 +97,7 @@ def get_conversation_chain(vectorstore):
     return conversation_chain
 
 
-# ---------------- ROOT ENDPOINT ----------------
+
 @app.get("/")
 def home():
 
@@ -112,7 +106,7 @@ def home():
     }
 
 
-# ---------------- HEALTH ENDPOINT ----------------
+
 @app.get("/health")
 def health():
 
@@ -121,7 +115,6 @@ def health():
     }
 
 
-# ---------------- UPLOAD ENDPOINT ----------------
 @app.post("/upload")
 async def upload_documents(
     files: list[UploadFile] = File(...)
@@ -144,13 +137,11 @@ async def upload_documents(
     }
 
 
-# ---------------- CHAT REQUEST MODEL ----------------
 class ChatRequest(BaseModel):
 
     question: str
 
 
-# ---------------- CHAT ENDPOINT ----------------
 @app.post("/chat")
 async def chat(request: ChatRequest):
 

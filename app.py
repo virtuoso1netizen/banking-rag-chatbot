@@ -11,7 +11,7 @@ from langchain_groq import ChatGroq
 from htmlTemplates import css, bot_template, user_template
 
 
-# ------------------ FILE LOADER ------------------
+
 def get_file_text(uploaded_files):
 
     text = ""
@@ -36,7 +36,6 @@ def get_file_text(uploaded_files):
     return text
 
 
-# ------------------ CHUNKING ------------------
 def get_text_chunks(text):
 
     text_splitter = CharacterTextSplitter(
@@ -51,7 +50,6 @@ def get_text_chunks(text):
     return chunks
 
 
-# ------------------ VECTOR STORE ------------------
 def get_vectorstore(text_chunks):
 
     embeddings = HuggingFaceEmbeddings(
@@ -66,7 +64,7 @@ def get_vectorstore(text_chunks):
     return vectorstore
 
 
-# ------------------ CONVERSATION CHAIN ------------------
+
 def get_conversation_chain(vectorstore):
 
     llm = ChatGroq(
@@ -89,7 +87,7 @@ def get_conversation_chain(vectorstore):
     return conversation_chain
 
 
-# ------------------ HANDLE USER QUERY ------------------
+
 def handle_user_query(user_question):
 
     response = st.session_state.conversation(
@@ -125,7 +123,7 @@ def handle_user_query(user_question):
     )
 
 
-# ------------------ DISPLAY CHAT HISTORY ------------------
+
 def display_chat_history():
 
     if "chat_history" not in st.session_state:
@@ -154,7 +152,7 @@ def display_chat_history():
             )
 
 
-# ------------------ MAIN APP ------------------
+
 def main():
 
     load_dotenv()
@@ -176,7 +174,7 @@ def main():
     st.title("AI Banking Support Assistant")
     st.header("Chat with your Documents 📄")
 
-    # ---------------- USER INPUT ----------------
+    
     user_question = st.text_input(
         "Ask a question about your documents:"
     )
@@ -193,10 +191,10 @@ def main():
                 "Please upload and process documents first."
             )
 
-    # ---------------- DISPLAY CHAT ----------------
+   
     display_chat_history()
 
-    # ---------------- SIDEBAR ----------------
+    
     with st.sidebar:
 
         st.subheader("Your Documents")
