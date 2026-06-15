@@ -5,21 +5,21 @@ The chatbot retrieves relevant information from uploaded banking-related documen
 
 ---
 
-# 🚀 Features
+# Features
 
-✅ Conversational AI chatbot  
-✅ Retrieval-Augmented Generation (RAG) pipeline  
-✅ PDF and TXT document support  
-✅ Semantic similarity search using FAISS  
-✅ Context-aware conversational memory  
-✅ FastAPI backend APIs  
-✅ Groq LLM integration  
-✅ Dockerized deployment  
-✅ Cloud deployment using Render  
+1. Conversational AI chatbot  
+2. Retrieval-Augmented Generation (RAG) pipeline  
+3. PDF and TXT document support  
+4. Semantic similarity search using FAISS  
+5. Context-aware conversational memory  
+6. FastAPI backend APIs  
+7. Groq LLM integration  
+8. Dockerized deployment  
+9. Cloud deployment using Render  
 
 ---
 
-# 🧠 RAG Pipeline
+# RAG Pipeline
 
 The chatbot implements a complete RAG workflow:
 
@@ -33,7 +33,7 @@ The chatbot implements a complete RAG workflow:
 
 ---
 
-# 🏗️ Architecture
+#  Architecture
 
 ```text
 User Query
@@ -51,7 +51,7 @@ AI Generated Response
 
 ---
 
-# 🛠️ Technologies Used
+#  Technologies Used
 
 ## Backend
 - FastAPI
@@ -74,14 +74,14 @@ AI Generated Response
 
 ---
 
-# 📂 Supported File Types
+# Supported File Types
 
 - PDF
 - TXT
 
 ---
 
-# 🔗 Live Deployment
+# Live Deployment
 
 ## Backend API
 
@@ -97,9 +97,9 @@ https://banking-rag-backend-5yen.onrender.com/docs
 
 ---
 
-# 📡 API Endpoints
+# API Endpoints
 
-## 1️⃣ Health Check
+## 1. Health Check
 
 ```http
 GET /health
@@ -115,7 +115,7 @@ GET /health
 
 ---
 
-## 2️⃣ Upload Documents
+## 2️. Upload Documents
 
 ```http
 POST /upload
@@ -125,7 +125,7 @@ Uploads PDF/TXT documents and creates vector embeddings.
 
 ---
 
-## 3️⃣ Chat Endpoint
+## 3️. Chat Endpoint
 
 ```http
 POST /chat
@@ -149,9 +149,9 @@ POST /chat
 
 ---
 
-# ⚙️ Local Setup Instructions
+#  Local Setup Instructions
 
-## 1️⃣ Clone Repository
+## 1️. Clone Repository
 
 ```bash
 git clone https://github.com/virtuoso1netizen/banking-rag-chatbot.git
@@ -160,7 +160,7 @@ cd banking-rag-chatbot
 
 ---
 
-## 2️⃣ Create Virtual Environment
+## 2️. Create Virtual Environment
 
 ### Windows
 
@@ -178,7 +178,7 @@ source .venv/bin/activate
 
 ---
 
-## 3️⃣ Install Dependencies
+## 3️. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -186,7 +186,7 @@ pip install -r requirements.txt
 
 ---
 
-## 4️⃣ Create `.env` File
+## 4️. Create `.env` File
 
 ```env
 GROQ_API_KEY=your_groq_api_key
@@ -194,7 +194,7 @@ GROQ_API_KEY=your_groq_api_key
 
 ---
 
-## 5️⃣ Run Backend
+## 5️. Run Backend
 
 ```bash
 uvicorn backend:app --reload
@@ -214,7 +214,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# 🐳 Docker Deployment
+# Docker Deployment
 
 ## Dockerfile
 
@@ -234,7 +234,7 @@ CMD ["python", "-m", "uvicorn", "backend:app", "--host", "0.0.0.0", "--port", "1
 
 ---
 
-# ☁️ Deployment Approach
+# Deployment Approach
 
 The backend was deployed using **Render** with Docker support.
 
@@ -248,7 +248,7 @@ The backend was deployed using **Render** with Docker support.
 
 ---
 
-# 🧪 Example Workflow
+# Example Workflow
 
 ### Step 1 — Upload Document
 
@@ -280,7 +280,7 @@ POST /upload
 
 ---
 
-# 🔮 Future Improvements
+# Future Improvements
 
 - Persistent vector database storage
 - Frontend deployment
@@ -294,7 +294,7 @@ POST /upload
 
 ---
 
-# ⚠️ Challenges Faced
+# Challenges Faced
 
 - Python dependency conflicts
 - Docker deployment debugging
@@ -304,7 +304,7 @@ POST /upload
 
 ---
 
-# 📌 Conclusion
+# Conclusion
 
 This project demonstrates a production-oriented implementation of a Retrieval-Augmented Generation (RAG) chatbot capable of answering banking-related customer queries using semantic retrieval and LLM-powered response generation.
 
@@ -312,7 +312,7 @@ The system combines FastAPI APIs, vector databases, embeddings, and modern LLM i
 
 ---
 
-# 👩‍💻 Author
+#  Author
 
 **Anika**  
 GitHub: https://github.com/virtuoso1netizen
