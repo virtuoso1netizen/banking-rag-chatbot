@@ -1,4 +1,4 @@
-# 🏦 AI Banking Support Chatbot using RAG
+# AI Banking Support Chatbot using RAG
 
 An AI-powered Banking Support Chatbot built using **Retrieval-Augmented Generation (RAG)**, **FastAPI**, **LangChain**, **FAISS**, and **Groq LLMs**.  
 The chatbot retrieves relevant information from uploaded banking-related documents and generates context-aware responses.
